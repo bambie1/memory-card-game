@@ -1,16 +1,18 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Card.scss";
 
-class Card extends Component {
-  constructor() {
-    super();
-
-    this.state = {};
-  }
-
-  render() {
-    return <div className="card-component">A card</div>;
-  }
-}
+const Card = ({ id, src, name, handleClick, flipped }) => {
+  return (
+    <div
+      className={`card-component ${flipped ? "flipped" : ""}`}
+      onClick={() => {
+        handleClick(id);
+      }}
+    >
+      <img className="card-front" src={src} alt={name} />
+      <img className="card-back" src="/assets/card-front.jpg" alt="logo" />
+    </div>
+  );
+};
 
 export default Card;

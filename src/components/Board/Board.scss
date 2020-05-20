@@ -1,0 +1,18 @@
+.board {
+  display: flex;
+  //   width: 340px; to avoid spilling out of view-width
+  height: 340px;
+  margin: 3vh auto;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+
+@media only screen and (min-width: 768px) {
+  .board {
+    display: flex;
+    width: 340px;
+    height: 340px;
+    margin: 3vh auto;
+    flex-wrap: wrap;
+  }
+}
