@@ -7,9 +7,11 @@
   transform-style: preserve-3d;
   border: 1px solid;
   transition: transform 0.5s;
+  cursor: pointer;
 
   &.flipped {
     transform: rotateY(180deg);
+    cursor: default;
   }
   .card-front,
   .card-back {
