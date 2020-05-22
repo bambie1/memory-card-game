@@ -1,0 +1,44 @@
+.timer {
+  position: relative;
+  height: 100px;
+  width: 100px;
+
+  /* Removes SVG styling that would hide the time label */
+  .timer-circle {
+    fill: none;
+    stroke: none;
+  }
+
+  /* The SVG path that displays the timer's progress */
+  .timer-path-elapsed {
+    stroke-width: 7px;
+    stroke: grey;
+  }
+
+  .timer-label {
+    position: absolute;
+    top: 27px;
+    left: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+  }
+
+  .timer-path-remaining {
+    stroke-width: 7px;
+    stroke-linecap: round;
+
+    transform: rotate(90deg);
+    transform-origin: center;
+
+    /* One second aligns with the speed of the countdown timer */
+    transition: 1s linear all;
+    stroke: currentColor;
+  }
+
+  .timer-svg {
+    /* Flips the svg and makes the animation to move left-to-right */
+    transform: scaleX(-1);
+  }
+}

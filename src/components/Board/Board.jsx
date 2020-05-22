@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Card from "../Card/Card";
 import "./Board.scss";
 
@@ -6,10 +6,6 @@ const Board = ({ dimension, images }) => {
   const [flippedCards, setFlippedCards] = useState([]);
   const [solved, setSolved] = useState([]);
   const [disabled, setDisabled] = useState(false);
-
-  // useEffect(() => {
-  //   console.log("matched: ", flippedCards);
-  // });
 
   const handleClick = (id) => {
     setDisabled(true);
@@ -27,7 +23,7 @@ const Board = ({ dimension, images }) => {
         setSolved([...solved, flippedCards[0], id]); //spreading the flipped array didn't work before
         // setTimeout(resetCards, 1500);
         resetCards();
-      } else setTimeout(resetCards, 1500);
+      } else setTimeout(resetCards, 1000);
     }
     //
   };
@@ -64,7 +60,7 @@ const Board = ({ dimension, images }) => {
       {solved.length === images.length ? (
         <div>SOLVED!</div>
       ) : (
-        <div>NOT SOLVED...</div>
+        <div>NOT SOLVED... {`${(solved.length * 100) / images.length} %`}</div>
       )}
     </div>
   );

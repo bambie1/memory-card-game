@@ -5,13 +5,17 @@
   display: flex;
   position: relative;
   transform-style: preserve-3d;
-  border: 1px solid;
+  // border: 1px solid;
   transition: transform 0.5s;
   cursor: pointer;
 
   &.flipped {
     transform: rotateY(180deg);
     cursor: default;
+
+    // &.solved {
+    //   border: 3px solid #0000ff63;
+    // }
   }
   .card-front,
   .card-back {

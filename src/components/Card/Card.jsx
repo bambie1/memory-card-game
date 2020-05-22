@@ -4,7 +4,9 @@ import "./Card.scss";
 const Card = ({ id, disabled, src, name, handleClick, flipped, solved }) => {
   return (
     <div
-      className={`card-component ${flipped || solved ? "flipped" : ""}`}
+      className={`card-component ${flipped || solved ? "flipped" : ""} ${
+        solved ? "solved" : ""
+      }`}
       onClick={() => {
         !disabled && handleClick(id);
       }}
