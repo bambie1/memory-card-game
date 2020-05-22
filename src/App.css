@@ -1,8 +1,23 @@
 .App {
   text-align: center;
-  /* width: 60%; */
+  width: 80%;
   margin: auto;
-  height: 100vh;
+  padding: 18vh 0vh;
+  /* margin: 20vh auto; */
+  /* height: 100vh; */
   display: flex;
-  background-color: #808080a6;
+  /* background-color: #808080a6; */
+}
+
+@media only screen and (min-width: 768px) {
+  .App {
+    /* padding: 24vh 0vh; */
+    width: 62%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .App {
+    /* padding: 24vh 0vh; */
+    /* width: 49%; */
+  }
 }

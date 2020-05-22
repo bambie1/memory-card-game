@@ -9,12 +9,16 @@
   transition: transform 0.5s;
   cursor: pointer;
 
+  &:hover {
+    transform: scale(0.9);
+  }
+
   &.flipped {
     transform: rotateY(180deg);
     cursor: default;
 
     // &.solved {
-    //   border: 3px solid #0000ff63;
+    //   animation: dance 1s linear 500ms;
     // }
   }
   .card-front,
@@ -30,5 +34,17 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
+@keyframes dance {
+  0%,
+  100% {
+    transform: rotateY(0deg);
+  }
+  25% {
+    transform: rotateY(-30deg);
+  }
+  75% {
+    transform: rotateY(30deg);
+  }
+}
+@media only screen and (min-width: 768px) {
 }

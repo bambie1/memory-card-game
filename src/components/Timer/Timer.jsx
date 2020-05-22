@@ -15,7 +15,6 @@ const Timer = ({ timeLeft, timeLimit }) => {
   var fraction = timeLeft / timeLimit;
   var clockFraction = fraction - (1 / timeLimit) * (1 - fraction);
   var remainingPathColor = colorCodes(clockFraction);
-  console.log("pathcolor: ", remainingPathColor);
   return (
     <div className="timer">
       <svg

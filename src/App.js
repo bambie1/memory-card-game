@@ -7,7 +7,7 @@ import duplicateAndShuffle from "./duplicateAndShuffle";
 
 const App = () => {
   var size = 8;
-  var timeLimit = 30;
+  var timeLimit = 45;
   const [images, setImages] = useState([]);
   const [timePassed, setTimePassed] = useState(0);
 
@@ -28,7 +28,7 @@ const App = () => {
   return (
     <div className="App">
       <Timer timeLeft={timeLimit - timePassed} timeLimit={timeLimit} />
-      <Board images={images} />
+      <Board images={images} gameOver={timePassed === timeLimit} />
     </div>
   );
 };
