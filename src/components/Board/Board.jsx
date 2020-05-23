@@ -1,13 +1,13 @@
 import React, { Fragment, useState } from "react";
 import Card from "../Card/Card";
 import "./Board.scss";
+import GameProgress from "../Timer-And-Progress/GameProgress";
 
-const Board = ({ gameOver, images }) => {
+const Board = ({ gameOver, images, solveBoard }) => {
   const [flippedCards, setFlippedCards] = useState([]);
   const [solved, setSolved] = useState([]);
   const [disabled, setDisabled] = useState(gameOver);
 
-  console.log("disabled? ", disabled, gameOver);
   const handleClick = (id) => {
     if (!gameOver) {
       setDisabled(true);
@@ -23,11 +23,12 @@ const Board = ({ gameOver, images }) => {
         if (cardsMatch(id)) {
           console.log("matched: ", flippedCards);
           setSolved([...solved, flippedCards[0], id]); //spreading the flipped array didn't work before
-          // setTimeout(resetCards, 1500);
           resetCards();
-        } else setTimeout(resetCards, 1000);
+          if (solved.length + 2 === images.length) {
+            solveBoard();
+          }
+        } else setTimeout(resetCards, 700);
       }
-      //
     }
   };
 
@@ -57,11 +58,8 @@ const Board = ({ gameOver, images }) => {
           />
         ))}
       </div>
-      {solved.length === images.length ? (
-        <div>SOLVED!</div>
-      ) : (
-        <div>NOT SOLVED... {`${(solved.length * 100) / images.length} %`}</div>
-      )}
+      {/* {solved.length === images.length ? ( */}
+      <GameProgress solvedFraction={solved.length / images.length} />
     </Fragment>
   );
 };

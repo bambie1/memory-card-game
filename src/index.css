@@ -14,10 +14,16 @@ code {
 }
 
 #root {
-  height: 100vh;
+  /* height: 100vh; */
   background: linear-gradient(
     178deg,
     rgb(156, 177, 248) 7.5%,
     rgb(153, 247, 243) 93.1%
   );
+}
+
+@media only screen and (min-width: 768px) {
+  #root {
+    height: 100vh;
+  }
 }

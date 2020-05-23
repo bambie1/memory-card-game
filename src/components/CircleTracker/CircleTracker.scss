@@ -1,21 +1,21 @@
-.timer {
+.tracker {
   position: relative;
   height: 100px;
   width: 100px;
 
   /* Removes SVG styling that would hide the time label */
-  .timer-circle {
+  .tracker-circle {
     fill: none;
     stroke: none;
   }
 
-  /* The SVG path that displays the timer's progress */
-  .timer-path-elapsed {
+  /* The SVG path that displays the tracker's progress */
+  .tracker-path-elapsed {
     stroke-width: 7px;
     stroke: grey;
   }
 
-  .timer-label {
+  .tracker-label {
     position: absolute;
     top: 27px;
     left: 22px;
@@ -25,19 +25,19 @@
     font-size: 30px;
   }
 
-  .timer-path-remaining {
+  .tracker-path-remaining {
     stroke-width: 7px;
     stroke-linecap: round;
 
     transform: rotate(90deg);
     transform-origin: center;
 
-    /* One second aligns with the speed of the countdown timer */
+    /* One second aligns with the speed of the countdown tracker */
     transition: 1s linear all;
     stroke: currentColor;
   }
 
-  .timer-svg {
+  .tracker-svg {
     /* Flips the svg and makes the animation to move left-to-right */
     transform: scaleX(-1);
   }
@@ -47,7 +47,7 @@
 }
 
 @media only screen and (min-width: 1024px) {
-  .timer {
+  .tracker {
     margin: 18vh 3vh;
   }
 }

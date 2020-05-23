@@ -1,8 +1,9 @@
 .board {
   display: flex;
-  width: 340px; //remove width to avoid spilling out of view-width
+  width: 84vw;
   height: 340px;
   // margin: 3vh auto;
+  margin: auto;
   flex-wrap: wrap;
   perspective: 1000px;
 

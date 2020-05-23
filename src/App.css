@@ -2,21 +2,23 @@
   text-align: center;
   width: 80%;
   margin: auto;
-  padding: 18vh 0vh;
+  padding: 3vh 0vh;
   /* margin: 20vh auto; */
   /* height: 100vh; */
   display: flex;
+  flex-direction: column;
   /* background-color: #808080a6; */
 }
 
 @media only screen and (min-width: 768px) {
   .App {
-    /* padding: 24vh 0vh; */
+    padding: 8vh 0vh;
     width: 62%;
   }
 }
 @media only screen and (min-width: 1024px) {
   .App {
+    flex-direction: row;
     /* padding: 24vh 0vh; */
     /* width: 49%; */
   }
