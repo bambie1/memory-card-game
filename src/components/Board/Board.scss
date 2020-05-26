@@ -5,6 +5,14 @@
   // transition: transform 2s;
   // padding: 0vh 4vh;
 
+  .game-time {
+    display: flex;
+
+    .pause-resume {
+      padding: 29px 5px;
+      position: absolute;
+    }
+  }
   .timer,
   .board,
   .game-progress {
@@ -12,10 +20,13 @@
   }
 
   .board {
+    //easy-phone
     display: flex;
-    width: 100%; //84vw;
-    height: 340px;
-    // margin: 3vh auto;
+    // width: 100%; //84vw;
+    // height: 340px;
+    width: 92vw; //303px;
+    height: 286px;
+
     margin: auto;
     flex-wrap: wrap;
     perspective: 1000px;

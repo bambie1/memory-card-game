@@ -48,12 +48,10 @@ const App = () => {
     setIsGameOver(false);
     setIsGameTime(false);
   };
-  const pauseGame = () => {
-    clearTimeout(timer);
+  const togglePauseGame = (num) => {
+    num === 0 ? clearTimeout(timer) : startTimer();
   };
-  const unpauseGame = () => {
-    startTimer();
-  };
+
   const gameStart = (name) => {
     console.log("game start");
     switch (name) {
@@ -86,8 +84,7 @@ const App = () => {
           timePassed={timePassed}
           timeLimit={timeLimit}
           timeUp={timeUp}
-          pause={pauseGame}
-          resume={unpauseGame}
+          togglePause={togglePauseGame}
         />
       ) : isGameOver ? (
         <GameResults

@@ -1,4 +1,5 @@
 import React from "react";
+import "./GameResults.scss";
 
 const GameResults = ({ percentageComplete, handleClick }) => {
   return (

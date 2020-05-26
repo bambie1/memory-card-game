@@ -10,8 +10,7 @@ const Board = ({
   images,
   solveBoard,
   timeUp,
-  pause,
-  resume,
+  togglePause,
 }) => {
   const [flippedCards, setFlippedCards] = useState([]);
   const [solved, setSolved] = useState([]);
@@ -59,17 +58,20 @@ const Board = ({
         timePassed === timeLimit || solvedFraction === 1 ? "finished" : ""
       }`}
     >
-      <div
-        className="pause-resume"
-        onClick={() => {
-          paused ? resume() : pause();
-          setDisabled(!disabled);
-          setPaused(!paused);
-        }}
-      >
-        {paused ? "Resume" : "Pause Game"}
+      <div className="game-time">
+        <div
+          className="pause-resume"
+          onClick={() => {
+            paused ? togglePause(1) : togglePause(0);
+            setDisabled(!disabled);
+            setPaused(!paused);
+          }}
+        >
+          {paused ? "Resume" : "Pause Game"}
+        </div>
+        <Timer timeLeft={timeLimit - timePassed} timeLimit={timeLimit} />
       </div>
-      <Timer timeLeft={timeLimit - timePassed} timeLimit={timeLimit} />
+
       <div className={`board ${timePassed === timeLimit ? "ended" : ""}`}>
         {images.map(({ id, ...otherProps }) => (
           <Card
@@ -79,6 +81,13 @@ const Board = ({
             handleClick={() => handleClick(id)}
             disabled={disabled || solved.includes(id)}
             solved={solved.includes(id)}
+            width={
+              images.length <= 16
+                ? "small"
+                : images.length > 20
+                ? "big"
+                : "medium"
+            }
           />
         ))}
       </div>

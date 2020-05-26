@@ -1,4 +1,5 @@
 import React from "react";
+import "./GameSettings.scss";
 
 const GameSettings = ({ handleGameStart }) => {
   const handleClick = (e) => {
