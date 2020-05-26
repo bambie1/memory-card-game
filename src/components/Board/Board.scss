@@ -1,23 +1,38 @@
-.board {
+.game-board {
   display: flex;
-  width: 84vw;
-  height: 340px;
-  // margin: 3vh auto;
-  margin: auto;
-  flex-wrap: wrap;
-  perspective: 1000px;
+  flex-direction: column;
+  // transform: rotateY(360deg);
+  // transition: transform 2s;
+  // padding: 0vh 4vh;
 
-  &.ended {
-    opacity: 0.6;
+  .timer,
+  .board,
+  .game-progress {
+    background: transparent;
+  }
+
+  .board {
+    display: flex;
+    width: 100%; //84vw;
+    height: 340px;
+    // margin: 3vh auto;
+    margin: auto;
+    flex-wrap: wrap;
+    perspective: 1000px;
+
+    &.ended {
+      opacity: 0.6;
+    }
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .board {
-    display: flex;
-    width: 340px;
-    height: 340px;
-    // margin: 3vh auto;
-    flex-wrap: wrap;
+  .game-board {
+    flex-direction: row;
+    .board {
+      width: 340px;
+      height: 340px;
+      // margin: 3vh auto;
+    }
   }
 }

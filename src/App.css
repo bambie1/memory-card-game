@@ -1,25 +1,18 @@
 .App {
   text-align: center;
-  width: 80%;
   margin: auto;
-  padding: 3vh 0vh;
-  /* margin: 20vh auto; */
-  /* height: 100vh; */
   display: flex;
   flex-direction: column;
-  /* background-color: #808080a6; */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* transform-style: preserve-3d;
+  transition: transform 1s; */
 }
 
 @media only screen and (min-width: 768px) {
-  .App {
-    padding: 8vh 0vh;
-    width: 62%;
-  }
 }
+
 @media only screen and (min-width: 1024px) {
-  .App {
-    flex-direction: row;
-    /* padding: 24vh 0vh; */
-    /* width: 49%; */
-  }
 }
