@@ -35,21 +35,33 @@ const App = () => {
       setSolved(100);
       timer = 0;
     }
-
-    setIsGameOver(true);
-    setIsGameTime(false);
+    endGame();
   };
   const timeUp = (solvedPerc) => {
     setSolved(solvedPerc);
+    endGame();
+  };
+  function endGame() {
     setIsGameOver(true);
     setIsGameTime(false);
-  };
-  const handleBackToGame = () => {
+  }
+  function restartGame() {
+    clearTimeout(timer);
+    timer = 0;
+    setTimePassed(0);
     setIsGameOver(false);
     setIsGameTime(false);
+  }
+  const handleBackToGame = () => {
+    restartGame();
   };
   const togglePauseGame = (num) => {
-    num === 0 ? clearTimeout(timer) : startTimer();
+    console.log("num: ", num);
+    console.log("num 0: clear timer, else resume");
+    if (num === 0) {
+      clearTimeout(timer);
+      timer = 0;
+    } else startTimer();
   };
 
   const gameStart = (name) => {
@@ -85,6 +97,7 @@ const App = () => {
           timeLimit={timeLimit}
           timeUp={timeUp}
           togglePause={togglePauseGame}
+          quitGame={restartGame}
         />
       ) : isGameOver ? (
         <GameResults

@@ -1,8 +1,6 @@
 .game-board {
   display: flex;
   flex-direction: column;
-  // transform: rotateY(360deg);
-  // transition: transform 2s;
   // padding: 0vh 4vh;
 
   .game-time {
@@ -10,9 +8,10 @@
 
     .pause-resume {
       padding: 29px 5px;
-      position: absolute;
+      // position: absolute;
     }
   }
+
   .timer,
   .board,
   .game-progress {
@@ -31,7 +30,8 @@
     flex-wrap: wrap;
     perspective: 1000px;
 
-    &.ended {
+    &.ended,
+    &.disabled {
       opacity: 0.6;
     }
   }

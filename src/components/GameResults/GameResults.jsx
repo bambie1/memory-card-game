@@ -5,7 +5,7 @@ const GameResults = ({ percentageComplete, handleClick }) => {
   return (
     <div className="game-results">
       {percentageComplete === 100 ? (
-        <div>You conquered!</div>
+        <h2>You conquered!</h2>
       ) : (
         <div>
           <h3>TIME'S UP!!</h3>

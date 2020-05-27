@@ -11,6 +11,7 @@ const Board = ({
   solveBoard,
   timeUp,
   togglePause,
+  quitGame,
 }) => {
   const [flippedCards, setFlippedCards] = useState([]);
   const [solved, setSolved] = useState([]);
@@ -47,6 +48,12 @@ const Board = ({
 
   const sameCardClicked = (id) => flippedCards.includes(id);
 
+  const cancelGame = () => {
+    setPaused(true);
+    if (window.confirm("Are you sure you want to quit?")) quitGame();
+    else if (!paused) setPaused(false);
+  };
+
   const cardsMatch = (id) => {
     var clickedCard = images.find((image) => image.id === id);
     var openCard = images.find((image) => image.id === flippedCards[0]);
@@ -56,10 +63,10 @@ const Board = ({
     <div
       className={`game-board ${
         timePassed === timeLimit || solvedFraction === 1 ? "finished" : ""
-      }`}
+      } `}
     >
       <div className="game-time">
-        <div
+        <button
           className="pause-resume"
           onClick={() => {
             paused ? togglePause(1) : togglePause(0);
@@ -68,11 +75,18 @@ const Board = ({
           }}
         >
           {paused ? "Resume" : "Pause Game"}
-        </div>
+        </button>
+        <button className="quit-game" onClick={cancelGame}>
+          Quit game
+        </button>
         <Timer timeLeft={timeLimit - timePassed} timeLimit={timeLimit} />
       </div>
 
-      <div className={`board ${timePassed === timeLimit ? "ended" : ""}`}>
+      <div
+        className={`board ${timePassed === timeLimit ? "ended" : ""} ${
+          paused || disabled ? "disabled" : ""
+        }`}
+      >
         {images.map(({ id, ...otherProps }) => (
           <Card
             key={id}

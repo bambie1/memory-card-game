@@ -8,7 +8,7 @@ const GameSettings = ({ handleGameStart }) => {
   };
   return (
     <div className="game-settings">
-      <h3>MEMORY FLIP</h3>
+      <h2>MEMORY FLIP</h2>
       <div>
         <button name="easy" onClick={handleClick}>
           Easy
