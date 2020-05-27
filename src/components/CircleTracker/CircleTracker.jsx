@@ -12,7 +12,7 @@ const CircleTracker = ({ fraction, strokeColor, displayText }) => {
         <g className="tracker-circle">
           <circle className="tracker-path-elapsed" cx="50" cy="50" r="45" />
           <path
-            strokeDasharray={`${(fraction * 283).toFixed(0)} 283`}
+            strokeDasharray={`${fraction * 283} 283`}
             id="tracker-path-remaining"
             className={`tracker-path-remaining`}
             style={{ stroke: strokeColor }}

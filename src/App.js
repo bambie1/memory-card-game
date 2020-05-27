@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Board from "./components/Board/Board";
+import { CSSTransition } from "react-transition-group";
 import GameSettings from "./components/GameSettings/GameSettings";
 import GameResults from "./components/GameResults/GameResults";
 import "./App.css";
@@ -13,6 +14,7 @@ const App = () => {
   const [timeLimit, setTimeLimit] = useState(0);
   const [images, setImages] = useState([]);
   const [timePassed, setTimePassed] = useState(0);
+  const [hasGameStarted, setHasGameStarted] = useState(false);
   const [isGameTime, setIsGameTime] = useState(false);
   const [isGameOver, setIsGameOver] = useState(false);
 
@@ -21,13 +23,15 @@ const App = () => {
   }, [size]);
 
   useEffect(() => {
-    isGameTime && startTimer();
-  }, [timePassed, timeLimit]);
+    isGameTime && hasGameStarted && startTimer();
+  }, [timePassed, timeLimit, hasGameStarted]);
 
   const startTimer = () => {
-    timer = setTimeout(() => {
-      timePassed < timeLimit && setTimePassed(timePassed + 1);
-    }, 1000);
+    if (hasGameStarted) {
+      timer = setTimeout(() => {
+        timePassed < timeLimit && setTimePassed(timePassed + 1);
+      }, 1000);
+    }
   };
   const solveBoard = () => {
     if (timer) {
@@ -56,8 +60,6 @@ const App = () => {
     restartGame();
   };
   const togglePauseGame = (num) => {
-    console.log("num: ", num);
-    console.log("num 0: clear timer, else resume");
     if (num === 0) {
       clearTimeout(timer);
       timer = 0;
@@ -82,14 +84,30 @@ const App = () => {
       default:
         break;
     }
-    startTimer();
+    setHasGameStarted(false);
     setIsGameTime(true);
     setTimePassed(0);
   };
   return (
     <div className="App">
-      {/* <div className="user-div"> */}
-      {isGameTime ? (
+      {/* {isGameTime ? ( */}
+      <CSSTransition
+        in={!isGameTime && !isGameOver}
+        timeout={300}
+        classNames="my-node"
+        exit={false}
+        unmountOnExit
+      >
+        <GameSettings handleGameStart={gameStart} />
+      </CSSTransition>
+
+      <CSSTransition
+        in={isGameTime}
+        timeout={300}
+        classNames="my-node"
+        exit={false}
+        unmountOnExit
+      >
         <Board
           images={images}
           solveBoard={solveBoard}
@@ -98,16 +116,21 @@ const App = () => {
           timeUp={timeUp}
           togglePause={togglePauseGame}
           quitGame={restartGame}
+          startClock={() => setHasGameStarted(true)}
         />
-      ) : isGameOver ? (
+      </CSSTransition>
+      <CSSTransition
+        in={!isGameTime && isGameOver}
+        timeout={300}
+        classNames="my-node"
+        unmountOnExit
+        exit={false}
+      >
         <GameResults
           percentageComplete={solved}
           handleClick={handleBackToGame}
         />
-      ) : (
-        <GameSettings handleGameStart={gameStart} />
-      )}
-      {/* </div> */}
+      </CSSTransition>
     </div>
   );
 };

@@ -7,13 +7,36 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid grey;
+  background: #eee2dc;
+  box-shadow: 5px 5px 4px #9e9e9e;
+  border-radius: 10px;
+}
+.my-node-enter {
+  opacity: 0;
+  transform: scale(1.1);
+  transform: rotateX(360deg);
+}
+.my-node-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 3000ms;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 3000ms;
 }
 
 button {
   display: inline-block;
-  border: none;
+  align-self: center;
+  /* color: inherit; */
+  color: #ac3b61;
   padding: 0.6rem;
+  border: 1px solid;
+  border-radius: 7px;
   margin: 0px 4px;
   text-decoration: none;
   cursor: pointer;
@@ -21,16 +44,17 @@ button {
   transition: background 250ms ease-in-out, transform 150ms ease;
   -webkit-appearance: none;
 }
-
-/* button:hover,
-button:focus {
-  background: #0053ba;
+button:hover {
+  color: white;
+  border: none;
+  background: #ac3b61;
 }
 
 button:focus {
-  outline: 1px solid #fff;
+  outline: none;
+  /* 1px solid #fff; */
   outline-offset: -4px;
-} */
+}
 
 button:active {
   transform: scale(0.99);

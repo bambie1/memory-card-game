@@ -8,7 +8,9 @@ const GameSettings = ({ handleGameStart }) => {
   };
   return (
     <div className="game-settings">
-      <h2>MEMORY FLIP</h2>
+      <h2>
+        MEMORY <span id="flip-animation">FLIP</span>
+      </h2>
       <div>
         <button name="easy" onClick={handleClick}>
           Easy

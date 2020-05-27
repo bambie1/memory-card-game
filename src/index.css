@@ -15,11 +15,12 @@ code {
 
 #root {
   min-height: 100vh;
-  background: linear-gradient(
+  /* background: linear-gradient(
     178deg,
     rgb(156, 177, 248) 7.5%,
     rgb(153, 247, 243) 93.1%
-  );
+  ); */
+  background: #edc7b7;
 }
 
 @media only screen and (min-width: 768px) {

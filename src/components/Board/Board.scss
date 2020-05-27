@@ -3,11 +3,19 @@
   flex-direction: column;
   // padding: 0vh 4vh;
 
-  .game-time {
+  .game-time,
+  .progress-quit {
     display: flex;
+    margin: auto;
 
     .pause-resume {
-      padding: 29px 5px;
+      // padding: 29px 5px;
+      &.hide {
+        visibility: hidden;
+      }
+      &.show {
+        visibility: visible;
+      }
       // position: absolute;
     }
   }
@@ -19,8 +27,8 @@
   }
 
   .board {
-    //easy-phone
     display: flex;
+    align-items: center;
     // width: 100%; //84vw;
     // height: 340px;
     width: 92vw; //303px;
@@ -40,6 +48,11 @@
 @media only screen and (min-width: 768px) {
   .game-board {
     flex-direction: row;
+
+    .game-time,
+    .progress-quit {
+      flex-direction: column;
+    }
     .board {
       width: 340px;
       height: 340px;

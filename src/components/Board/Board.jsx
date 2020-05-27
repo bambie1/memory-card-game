@@ -12,6 +12,7 @@ const Board = ({
   timeUp,
   togglePause,
   quitGame,
+  startClock,
 }) => {
   const [flippedCards, setFlippedCards] = useState([]);
   const [solved, setSolved] = useState([]);
@@ -22,6 +23,15 @@ const Board = ({
   if (timeLimit === timePassed) timeUp(solvedFraction * 100);
 
   const handleClick = (id) => {
+    // var clickedMoreThanOnce = false;
+    // if (!clickedMoreThanOnce) {
+    //   function checkClick() {
+    //     clickedMoreThanOnce = true;
+    //     console.log("handle click");
+    //   }
+    //   checkClick();
+    // }
+    startClock();
     if (!(timePassed === timeLimit)) {
       setDisabled(true);
       if (flippedCards.length === 0) {
@@ -66,8 +76,9 @@ const Board = ({
       } `}
     >
       <div className="game-time">
+        <Timer timeLeft={timeLimit - timePassed} timeLimit={timeLimit} />
         <button
-          className="pause-resume"
+          className={`pause-resume ${timePassed > 0 ? "show" : "hide"}`}
           onClick={() => {
             paused ? togglePause(1) : togglePause(0);
             setDisabled(!disabled);
@@ -76,10 +87,6 @@ const Board = ({
         >
           {paused ? "Resume" : "Pause Game"}
         </button>
-        <button className="quit-game" onClick={cancelGame}>
-          Quit game
-        </button>
-        <Timer timeLeft={timeLimit - timePassed} timeLimit={timeLimit} />
       </div>
 
       <div
@@ -105,7 +112,12 @@ const Board = ({
           />
         ))}
       </div>
-      <GameProgress solvedFraction={solvedFraction} />
+      <div className="progress-quit">
+        <GameProgress solvedFraction={solvedFraction} />
+        <button className="quit-game" onClick={cancelGame}>
+          Quit game
+        </button>
+      </div>
     </div>
   );
 };

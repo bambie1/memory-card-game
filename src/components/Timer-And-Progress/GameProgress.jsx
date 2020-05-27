@@ -9,7 +9,7 @@ const GameProgress = ({ solvedFraction }) => {
     <div className="game-progress">
       <CircleTracker
         fraction={solvedFraction}
-        displayText={`${solvedFraction * 100}%`}
+        displayText={`${(solvedFraction * 100).toFixed(1)}%`}
         strokeColor={remainingPathColor}
       />
     </div>
