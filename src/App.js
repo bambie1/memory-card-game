@@ -74,11 +74,11 @@ const App = () => {
         setSize(8);
         break;
       case "medium":
-        setTimeLimit(45);
+        setTimeLimit(60);
         setSize(10);
         break;
       case "hard":
-        setTimeLimit(30);
+        setTimeLimit(45);
         setSize(12);
         break;
       default:

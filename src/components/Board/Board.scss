@@ -29,14 +29,14 @@
   .board {
     display: flex;
     align-items: center;
-    // width: 100%; //84vw;
-    // height: 340px;
-    width: 92vw; //303px;
+    // width: 92vw; //303px;
     height: 286px;
-
     margin: auto;
     flex-wrap: wrap;
     perspective: 1000px;
+
+    justify-content: center;
+    width: 48vw;
 
     &.ended,
     &.disabled {

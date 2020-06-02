@@ -13,13 +13,13 @@ const GameSettings = ({ handleGameStart }) => {
       </h2>
       <div>
         <button name="easy" onClick={handleClick}>
-          Easy
+          EASY
         </button>
         <button name="medium" onClick={handleClick}>
-          Medium
+          MEDIUM
         </button>
         <button name="hard" onClick={handleClick}>
-          Hard
+          HARD
         </button>
       </div>
     </div>

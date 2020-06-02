@@ -20,8 +20,16 @@ const Card = ({
         !disabled && handleClick(id);
       }}
     >
-      <img className={"card-front"} src={src} alt={name} />
-      <img className={"card-back"} src="/assets/card-front.jpg" alt="logo" />
+      <img
+        className={"card-front"}
+        src={process.env.PUBLIC_URL + src}
+        alt={name}
+      />
+      <img
+        className={"card-back"}
+        src={process.env.PUBLIC_URL + "/assets/card-front.jpg"}
+        alt="logo"
+      />
     </div>
   );
 };

@@ -21,8 +21,7 @@ function duplicate(cardsArray) {
     return acc;
   }, []);
 
-  //   return shuffle(duplicateArray);
-  return duplicateArray;
+  return shuffle(duplicateArray);
 }
 
 export default duplicate;
