@@ -59,6 +59,12 @@
     .game-time,
     .progress-quit {
       flex-direction: column;
+
+      .game-info {
+        &.show {
+          width: 16vw;
+        }
+      }
     }
     .board {
       width: 340px;
