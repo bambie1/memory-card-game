@@ -27,15 +27,13 @@
   &.flipped {
     transform: rotateY(180deg);
     cursor: default;
-
-    // &.solved {
-    //   animation: dance 1s linear 500ms;
-    // }
   }
   .card-front,
   .card-back {
     max-width: 100%;
     max-height: 100%;
+    width: 100%;
+    height: 100%;
     position: absolute;
     border-radius: 5px;
     backface-visibility: hidden;

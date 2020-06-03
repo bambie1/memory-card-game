@@ -23,15 +23,6 @@ const Board = ({
   if (timeLimit === timePassed) timeUp(solvedFraction * 100);
 
   const handleClick = (id) => {
-    // var clickedMoreThanOnce = false;
-    // if (!clickedMoreThanOnce) {
-    //   function checkClick() {
-    //     clickedMoreThanOnce = true;
-    //     console.log("handle click");
-    //   }
-    //   checkClick();
-    // }
-    console.log("clicked: ", id, flippedCards);
     startClock();
     if (!(timePassed === timeLimit)) {
       setDisabled(true);
@@ -43,7 +34,6 @@ const Board = ({
           setDisabled(false);
           return;
         }
-        console.log("not same id");
         setFlippedCards([flippedCards[0], id]);
         if (cardsMatch(id)) {
           setSolved([...solved, flippedCards[0], id]); //spreading the flipped array didn't work before
