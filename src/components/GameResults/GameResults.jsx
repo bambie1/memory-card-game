@@ -18,6 +18,17 @@ const GameResults = ({ percentageComplete, handleClick }) => {
       <button className="play-again" onClick={() => handleClick()}>
         Play again
       </button>
+
+      <p id="source-link">
+        Want to know what these logos are?{" "}
+        <a
+          href="http://reachrecords.com/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Check it out
+        </a>
+      </p>
     </div>
   );
 };

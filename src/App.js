@@ -90,7 +90,6 @@ const App = () => {
   };
   return (
     <div className="App">
-      {/* {isGameTime ? ( */}
       <CSSTransition
         in={!isGameTime && !isGameOver}
         timeout={300}

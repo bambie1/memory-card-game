@@ -17,12 +17,14 @@ const Board = ({
   const [flippedCards, setFlippedCards] = useState([]);
   const [solved, setSolved] = useState([]);
   const [paused, setPaused] = useState(false);
+  const [started, setStarted] = useState(false);
   const [disabled, setDisabled] = useState(timePassed === timeLimit);
 
   const solvedFraction = solved.length / images.length;
   if (timeLimit === timePassed) timeUp(solvedFraction * 100);
 
   const handleClick = (id) => {
+    setStarted(true);
     startClock();
     if (!(timePassed === timeLimit)) {
       setDisabled(true);
@@ -72,6 +74,9 @@ const Board = ({
     >
       <div className="game-time">
         <Timer timeLeft={timeLimit - timePassed} timeLimit={timeLimit} />
+        <p className={`game-info ${started ? "hide" : "show"}`}>
+          Your timer starts after your first flip!
+        </p>
         <button
           className={`pause-resume ${timePassed > 0 ? "show" : "hide"}`}
           onClick={() => {

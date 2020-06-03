@@ -8,6 +8,14 @@
     display: flex;
     margin: auto;
 
+    .game-info {
+      &.hide {
+        display: none;
+      }
+      &.show {
+        display: block;
+      }
+    }
     .pause-resume {
       // padding: 29px 5px;
       &.hide {
@@ -29,7 +37,6 @@
   .board {
     display: flex;
     align-items: center;
-    // width: 92vw; //303px;
     width: 92vw;
     height: 286px;
     margin: auto;
@@ -37,7 +44,6 @@
     perspective: 1000px;
 
     justify-content: center;
-    width: 48vw;
 
     &.ended,
     &.disabled {
@@ -57,6 +63,7 @@
     .board {
       width: 340px;
       height: 340px;
+      // width: 48vw;
       // margin: 3vh auto;
     }
   }
