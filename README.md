@@ -8,10 +8,8 @@ You can view the website here: [Memory Flip](https://bambie1.github.io/memory-ca
 
 Simply fork this repo, then clone or download to your desktop, and run the following
 
+# Install dependencies, then run on localhost:3000
 ````
-# Install dependencies
 npm install
-
-# Serve on localhost:3000
-npm start```
+npm start
 ````
